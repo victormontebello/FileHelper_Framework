@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using System.CodeDom.Compiler;
 
 namespace FilesHelper
 {
@@ -112,6 +113,14 @@ namespace FilesHelper
                     memoryStream.Position = 0;
                 }
             }
+        }
+
+        public static void GenerateFromObject<T>(List<T> objects, string? filename)
+        {
+            objects.AsParallel().ForAll(o =>
+            {
+
+            });
         }
     }
 }
