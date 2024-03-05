@@ -48,8 +48,8 @@ namespace FilesHelper
                 {
                     columns.AsParallel().ForAll(column =>
                     {
-                        worksheet.Cells[firstRow, columns.IndexOf(column) + firstRow].Value = columns[columns.IndexOf(column)];
-                        worksheet.Column(columns.IndexOf(column) + firstRow).AutoFit();
+                        worksheet.Cells[1, columns.IndexOf(column) + 1].Value = columns[columns.IndexOf(column)];
+                        worksheet.Column(columns.IndexOf(column) + 1).AutoFit();
                     });
                 }
 
@@ -115,12 +115,33 @@ namespace FilesHelper
             }
         }
 
-        public static void GenerateFromObject<T>(List<T> t, string? filename)
+        public static void GenerateFromObject<T>(List<T> t, List<string>? columns, string? filename)
         {
-            t.AsParallel().ForAll(o =>
+            if (t is null)
             {
-                var f = o.GetType();
-            });
+                GenerateEmpty(filename);
+            }
+
+            var downloadsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + $"\\Downloads\\{filename}";
+
+            var properties = t.GetType().GetProperties().ToList();
+
+            using (var package = new ExcelPackage())
+            {
+                using (var worksheet = package.Workbook.Worksheets.Add(filename))
+                {
+                    columns.AsParallel().ForAll(column =>
+                    {
+                        worksheet.Cells[1, columns.IndexOf(column) + 1].Value = columns[columns.IndexOf(column)];
+                        worksheet.Column(columns.IndexOf(column) + 1).AutoFit();
+                    });
+
+                    t.AsParallel().ForAll(p =>
+                    {
+                        worksheet.Cells[2, 1].Value = properties[0].GetValue(t[0]);
+                    });
+                }
+            }
         }
     }
 }
