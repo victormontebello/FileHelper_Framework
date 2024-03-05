@@ -115,11 +115,11 @@ namespace FilesHelper
             }
         }
 
-        public static void GenerateFromObject<T>(List<T> objects, string? filename)
+        public static void GenerateFromObject<T>(List<T> t, string? filename)
         {
-            objects.AsParallel().ForAll(o =>
+            t.AsParallel().ForAll(o =>
             {
-
+                var f = o.GetType();
             });
         }
     }
