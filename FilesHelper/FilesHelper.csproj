@@ -6,7 +6,24 @@
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <Title>FileHelper</Title>
+    <Authors>Victor Montebello</Authors>
+    <Company>Own</Company>
+    <Description>A easy file helper to increase development skills, easy to use and fast</Description>
+    <PackageLicenseFile>licence.txt</PackageLicenseFile>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <Version>$(VersionPrefix)2</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\monte\OneDrive\Documentos\licence.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\monte\OneDrive\Documentos\README.MD">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.9" />
