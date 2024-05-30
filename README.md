@@ -1,6 +1,8 @@
 # File Helper
 
 PT: Esse é um projeto de modulaçao de um framework para .NET, que auxilia o desenvolvimento com arquivos.
+
+
 EN: This is a project to make the development with files of some types in .NET more easy and soft.
 
 ## Using the project
