@@ -7,11 +7,9 @@ EN: This is a project to make the development with files of some types in .NET m
 
 ## Using the project
 
-Run the following command:
+![image](https://github.com/victormontebello/FileHelper_Framework/assets/131495078/b06d8fe4-3f54-4895-bbde-5a4fe5d28d5e)
 
-```sh
-npx create-turbo@latest
-```
+install this nuget package, and now you can use all features!
 
 ## What's inside?
 
